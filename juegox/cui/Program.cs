@@ -11,6 +11,7 @@ namespace cui
         static void Main(string[] args)
         {
             Console.WriteLine("Hola git");
+            Console.ReadLine();
         }
     }
 }

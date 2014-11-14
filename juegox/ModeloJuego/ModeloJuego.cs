@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModeloJuego
+namespace SanzA.Programacion.Eval1.Juego.Logica
 {
     public static class ModeloJuego
     {

@@ -7,8 +7,8 @@
     <ProjectGuid>{6AAEB62B-708F-4879-A9FF-7187822C4633}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ModeloJuego</RootNamespace>
-    <AssemblyName>ModeloJuego</AssemblyName>
+    <RootNamespace>SanzA.Programacion.Eval1.Juego.Logica</RootNamespace>
+    <AssemblyName>ModeloAhorcado</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

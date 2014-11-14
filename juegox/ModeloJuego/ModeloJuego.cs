@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ModeloJuego
 {
-    class ModeloJuego
+    public static class ModeloJuego
     {
+        public static int SecretoDeLaVida()
+        {
+            return 42;
+        }
     }
 }

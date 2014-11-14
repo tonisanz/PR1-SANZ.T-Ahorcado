@@ -10,7 +10,8 @@ namespace cui
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hola git");
+            int secreto = ModeloJuego.ModeloJuego.SecretoDeLaVida();
+            Console.WriteLine("El secreto de la vida es " + secreto);
             Console.ReadLine();
         }
     }

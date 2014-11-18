@@ -9,7 +9,8 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 {
     public static class ModeloJuego
     {
-        
+
+
         public static void AdivinarPalabra(ref int i, int tl, String palabra2, ref String palabra3, ref String le, ref String lp)
         {
             int intento = 0;
@@ -142,27 +143,29 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
             Console.WriteLine(palabra3);
         }
-        public static void extraerPalabraAleatoria()
+        public static string extraerPalabraAleatoria(ref string palabra2)
         {
-            
-            
-                 
-            //Variable para la cantidad de palabras aleatorias a mostrar
-            int cantidad_de_palabras_aleatorias = 1;
+
+
+
+
             //Creamos un objeto aleatorio
             Random alea = new Random();
-            //String donde guardaremos la palabra aleatoria
-            String[]palabra = new String[alea.Next(1,100)];
-            
+
+            //Averiguar cuantas palabras tenemos en el archivo
+            string texto = File.ReadAllText("C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt");
+            int cantidadPalabras = texto.Split(new char[] { ' ' }).Length;
             //Bucle principal hasta que se llegue a esa cantidad
-            for (int i = 0; i < cantidad_de_palabras_aleatorias; i++)
+            for (int i=0; i <= cantidadPalabras ; i++)
             {
+
                 StreamReader objReader = new StreamReader("C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt");
-                string aleatorio = objReader.ReadLine();
+                palabra2 = objReader.ReadLine();
 
-           
-            }
 
-}
+            } return palabra2;
+            
+        }
+        
     }
 }

@@ -12,11 +12,11 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
     {
         static void Main(string[] args)
         {
+
+
+
+
             
-            int cont = 100;
-            String[] palabra = new String[cont];
-            
-           
             //Damos color a la consola y al texto
             Console.BackgroundColor = ConsoleColor.Cyan;
             Console.ForegroundColor = ConsoleColor.Red;
@@ -27,15 +27,16 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
             
             //Creamos y Damos valores nulos a las variables de tipo int
             int i = 0, numeroAleatorio = 0, longitudPalabra = 0;
-            //Inicializamos la variable numeroAleatorio entre 1 y 20
-            numeroAleatorio = alea.Next(1, cont);
+            //Inicializamos la variable numeroAleatorio
+            
+
             //Creamos y damos valores vacios a las variables de tipo string
             String palabra2 = "", palabra3 = "", le = "", lp = ""; ;
 
             
             //Inicializamos la variable string palabra2, asignándole el valor de la posicion del numero aleatorio
-            
-            palabra2 = objReader.ReadLine();
+
+            ModeloJuego.extraerPalabraAleatoria();
             //Inicializamos la variable longitudPalabra, asignándole la longitud de la palabra escogida aleatoriamente
             longitudPalabra = palabra2.Length;
 

@@ -151,18 +151,23 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
             //Creamos un objeto aleatorio
             Random alea = new Random();
-            int numAlea = Convert.ToInt32(alea.Next(1,1000));
 
+            
             //Averiguar cuantas palabras tenemos en el archivo
             string texto = File.ReadAllText("C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt");
             int cantidadPalabras = texto.Split(new char[] { ' ' }).Length;
+            int numAlea = Convert.ToInt32(alea.Next(1, cantidadPalabras));
+            char[] buffer = new char[cantidadPalabras];
             //Bucle principal hasta que se llegue a esa cantidad
             for (int i=0; i <= cantidadPalabras ; i++)
             {
-
+                
                 StreamReader objReader = new StreamReader("C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt");
-                palabra2 = objReader.ReadLine();
-
+                int palabraAleatoria = objReader.Read(buffer,numAlea,cantidadPalabras);
+                palabra2 = Convert.ToString(palabraAleatoria);
+                
+                
+                
 
             } return palabra2;
             

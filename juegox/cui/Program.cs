@@ -18,15 +18,15 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
 
             
             //Damos color a la consola y al texto
-            Console.BackgroundColor = ConsoleColor.Cyan;
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.BackgroundColor = ConsoleColor.DarkCyan;
+            Console.ForegroundColor = ConsoleColor.White;
             Console.Clear();
 
             //Creamos un objeto aleatorio
             
             
             //Creamos y Damos valores nulos a las variables de tipo int
-            int i = 0, numeroAleatorio = 0, longitudPalabra = 0;
+            int i = 0, longitudPalabra = 0;
             //Inicializamos la variable numeroAleatorio
             
 
@@ -34,19 +34,21 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
             String palabra2 = "", palabra3 = "", le = "", lp = ""; ;
 
             
-            //Inicializamos la variable string palabra2, asignándole el valor de la posicion del numero aleatorio
+            //Extraemos la palabra aleatoria llamando a el proyecto ModeloJuego
 
-            ModeloJuego.extraerPalabraAleatoria();
+            ModeloJuego.extraerPalabraAleatoria(ref palabra2);
             //Inicializamos la variable longitudPalabra, asignándole la longitud de la palabra escogida aleatoriamente
             longitudPalabra = palabra2.Length;
 
             //Escribimos el titulo del juego en consola
-            Console.WriteLine("...................");
+            Console.WriteLine(".............................");
             Console.WriteLine();
             Console.WriteLine("JUEGO DEL AHORCADO");
-            Console.WriteLine("...................");
+            Console.WriteLine("Versión 1.0");
+            Console.WriteLine("Autor : Antonio Sanz Llacer");
+            Console.WriteLine(".............................");
 
-            Console.WriteLine("\nY tiene " + longitudPalabra + " letras");
+            Console.WriteLine("\nLa palabra tiene " + longitudPalabra + " letras");
 
 
             //Llamamos al bucle for, InterrogacionOespacio para poner el simbolo ? o un espacio

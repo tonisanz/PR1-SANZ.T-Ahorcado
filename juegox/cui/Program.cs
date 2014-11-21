@@ -47,8 +47,15 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
             Console.WriteLine("Versión 1.0");
             Console.WriteLine("Autor : Antonio Sanz Llacer");
             Console.WriteLine(".............................");
+            Console.WriteLine();
+            Console.WriteLine("***************************************");
+            Console.WriteLine("ATENCIÓN");
+            Console.WriteLine("***************************************");
+            Console.WriteLine("JUGAR SOLO CON MAYUSCULAS");
+            Console.WriteLine("DE LO CONTRARIO, NO DETECTARÁ LA LETRA");
+            Console.WriteLine("****************************************");
 
-            Console.WriteLine("\nLa palabra tiene " + longitudPalabra + " letras");
+            Console.WriteLine("\nLA PALABRA TIENE " + longitudPalabra + " LETRAS");
 
 
             //Llamamos al bucle for, InterrogacionOespacio para poner el simbolo ? o un espacio

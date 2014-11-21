@@ -25,8 +25,10 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             {
                 //String lp = "", le = "";
                 Boolean exito = false;
+                Console.WriteLine("*********************");
                 Console.Write("PULSA UNA TECLA");
                 Console.Write("\nLETRA PULSADA = ");
+               
 
 
                 lp = Console.ReadLine();
@@ -47,14 +49,18 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
                 if (exito)
                 {
+                    Console.WriteLine("**************************");
                     Console.WriteLine("PALABRA = " + palabra3);
+                    Console.WriteLine("**************************");
                     Console.WriteLine();
 
                 }
                 else
                 {
                     intento++;
+                    Console.WriteLine("************************************************************************");
                     Console.WriteLine("La letra introducida no corresponde a la palabra, llevas " + intento + " intento");
+                    Console.WriteLine("************************************************************************");
                     Console.WriteLine();
 
                 }
@@ -67,9 +73,12 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("| /|\\");
                     Console.WriteLine("  / \\ ");
 
+                    Console.WriteLine("************************************************************************");
                     Console.WriteLine("Has agotado todos tus intentos, ¡PIERDES!");
+                    Console.WriteLine("************************************************************************");
                     Console.WriteLine();
                     Console.WriteLine("LA PALABRA CORRECTA ERA {0}", palabra2);
+                    Console.WriteLine("************************************************************************");
                 }
                 if (intento == 0)
                 {
@@ -166,21 +175,25 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             string texto = File.ReadAllText("C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt");
             //AVERIGUAMOS CUANTAS LINEAS TIENE EL TXT
             int numLineas = 0;
+            int i = 0;
             
-            int numAleatorio = alea.Next(0, numLineas);
             string palabraLeida;
-            String[] txt = new String[numLineas];
+            String[] txt = new String[100];
 
             while (leerPalabra.Peek() != -1)
             {
 
                 palabraLeida=leerPalabra.ReadLine();
-                
+                //ASIGNAMOS LA PALABRA LEIDA A LA POSICION DEL ARRAY
+                txt[i] = palabraLeida;
+                i++;
                 numLineas++;
-                txt[numLineas - 1] = palabraLeida;
+                
+                
+                
 
             }
-            
+            int numAleatorio = alea.Next(0, numLineas);
             
             palabra2 = txt[numAleatorio];
             return palabra2;

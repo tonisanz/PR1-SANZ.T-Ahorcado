@@ -27,8 +27,8 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 Boolean exito = false;
                 Console.Write("PULSA UNA TECLA");
                 Console.Write("\nLETRA PULSADA = ");
-                
-                
+
+
                 lp = Console.ReadLine();
                 for (i = 0; i <= tl - 1; i++)
                 {
@@ -66,7 +66,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("|  X ");
                     Console.WriteLine("| /|\\");
                     Console.WriteLine("  / \\ ");
-                    
+
                     Console.WriteLine("Has agotado todos tus intentos, ¡PIERDES!");
                     Console.WriteLine();
                     Console.WriteLine("LA PALABRA CORRECTA ERA {0}", palabra2);
@@ -80,7 +80,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("| / \\ ");
 
 
-                    
+
                 }
                 if (intento == 1)
                 {
@@ -90,7 +90,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("| /|\\ ");
                     Console.WriteLine("| /  ");
 
-                    
+
                 }
                 if (intento == 2)
                 {
@@ -157,32 +157,52 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
 
             //Creamos un objeto aleatorio
+
             Random alea = new Random();
 
-            
-            //Averiguar cuantas palabras tenemos en el archivo
+
+
+            StreamReader leerPalabra = new StreamReader("C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt");
             string texto = File.ReadAllText("C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt");
+            //AVERIGUAMOS CUANTAS LINEAS TIENE EL TXT
+            int numLineas = 0;
             
-            int cantidadPalabras = texto.Split(new char[] { ' ' }).Length;
-            int numAlea = Convert.ToInt32(alea.Next(1, cantidadPalabras));
-            char[] buffer = new char[cantidadPalabras];
-           
-            
-            //Bucle principal hasta que se llegue a esa cantidad
-            for (int i=0; i <= cantidadPalabras ; i++)
+            int numAleatorio = alea.Next(0, numLineas);
+            string palabraLeida;
+            String[] txt = new String[numLineas];
+
+            while (leerPalabra.Peek() != -1)
             {
-                
-                StreamReader objReader = new StreamReader("C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt");
 
-                palabra2=objReader.ReadLine();
+                palabraLeida=leerPalabra.ReadLine();
                 
-                
-                
-                
+                numLineas++;
+                txt[numLineas - 1] = palabraLeida;
 
-            } return palabra2;
+            }
             
+            
+            palabra2 = txt[numAleatorio];
+            return palabra2;
         }
-        
     }
 }
+
+                
+                
+               
+                
+            
+            
+            
+           
+            
+            
+            
+           
+            
+            
+        
+        
+    
+

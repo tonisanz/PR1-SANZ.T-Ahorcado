@@ -48,12 +48,7 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
             Console.WriteLine("Autor : Antonio Sanz Llacer");
             Console.WriteLine(".............................");
             Console.WriteLine();
-            Console.WriteLine("***************************************");
-            Console.WriteLine("ATENCIÓN");
-            Console.WriteLine("***************************************");
-            Console.WriteLine("JUGAR SOLO CON MAYUSCULAS");
-            Console.WriteLine("DE LO CONTRARIO, NO DETECTARÁ LA LETRA");
-            Console.WriteLine("****************************************");
+            
 
             Console.WriteLine("\nLA PALABRA TIENE " + longitudPalabra + " LETRAS");
 
@@ -65,8 +60,16 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
             //Llamamos al método AdivinarPalabra para empezar a jugar
             ModeloJuego.AdivinarPalabra(ref i, longitudPalabra, palabra2, ref palabra3, ref le, ref lp);
 
-            Console.ReadKey();
+            Console.WriteLine("---------->HASTA LUEGO!<----------");
+            Console.ReadLine();
+
+            
+            
+            
+            
+           
         }
 
+        
     }
 }

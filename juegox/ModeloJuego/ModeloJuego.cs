@@ -19,6 +19,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             Console.WriteLine("|  0 ");
             Console.WriteLine("| /|\\ ");
             Console.WriteLine("| / \\ ");
+            
 
 
             do
@@ -28,10 +29,11 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 Console.WriteLine("*********************");
                 Console.Write("PULSA UNA TECLA");
                 Console.Write("\nLETRA PULSADA = ");
-               
+                
 
 
                 lp = Console.ReadLine();
+                lp=lp.ToUpper();
                 for (i = 0; i <= tl - 1; i++)
                 {
 
@@ -53,6 +55,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("PALABRA = " + palabra3);
                     Console.WriteLine("**************************");
                     Console.WriteLine();
+                   
 
                 }
                 else
@@ -62,6 +65,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("La letra introducida no corresponde a la palabra, llevas " + intento + " intento");
                     Console.WriteLine("************************************************************************");
                     Console.WriteLine();
+                    
 
                 }
 
@@ -72,6 +76,11 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("|  X ");
                     Console.WriteLine("| /|\\");
                     Console.WriteLine("  / \\ ");
+                    Console.WriteLine("**************************");
+                    Console.WriteLine("PALABRA = " + palabra3);
+                    Console.WriteLine("**************************");
+                    Console.WriteLine();
+                    
 
                     Console.WriteLine("************************************************************************");
                     Console.WriteLine("Has agotado todos tus intentos, ¡PIERDES!");
@@ -79,6 +88,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine();
                     Console.WriteLine("LA PALABRA CORRECTA ERA {0}", palabra2);
                     Console.WriteLine("************************************************************************");
+                    
                 }
                 if (intento == 0)
                 {
@@ -87,6 +97,11 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("|  0 ");
                     Console.WriteLine("| /|\\ ");
                     Console.WriteLine("| / \\ ");
+                    Console.WriteLine("**************************");
+                    Console.WriteLine("PALABRA = " + palabra3);
+                    Console.WriteLine("**************************");
+                    Console.WriteLine();
+                   
 
 
 
@@ -98,6 +113,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("|  0 ");
                     Console.WriteLine("| /|\\ ");
                     Console.WriteLine("| /  ");
+                   
 
 
                 }
@@ -108,6 +124,10 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("|  0 ");
                     Console.WriteLine("| /|\\ ");
                     Console.WriteLine("|  ");
+                    Console.WriteLine("**************************");
+                    Console.WriteLine("PALABRA = " + palabra3);
+                    Console.WriteLine("**************************");
+                    Console.WriteLine();
 
                 }
                 if (intento == 3)
@@ -117,6 +137,10 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("|  0 ");
                     Console.WriteLine("| /| ");
                     Console.WriteLine("|  ");
+                    Console.WriteLine("**************************");
+                    Console.WriteLine("PALABRA = " + palabra3);
+                    Console.WriteLine("**************************");
+                    Console.WriteLine();
 
 
                 }
@@ -127,6 +151,10 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("|  0 ");
                     Console.WriteLine("|  ");
                     Console.WriteLine("|  ");
+                    Console.WriteLine("**************************");
+                    Console.WriteLine("PALABRA = " + palabra3);
+                    Console.WriteLine("**************************");
+                    Console.WriteLine();
 
 
 
@@ -138,7 +166,9 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("ENHORABUENA! ¡GANASTE!");
                     break;
                 }
+                
 
+                
 
 
 
@@ -198,6 +228,8 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             palabra2 = txt[numAleatorio];
             return palabra2;
         }
+        
+
     }
 }
 

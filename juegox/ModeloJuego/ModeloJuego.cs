@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
+
 namespace SanzA.Programacion.Eval1.Juego.Logica
 {
     public static class ModeloJuego
@@ -13,7 +14,9 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
         public static void AdivinarPalabra(ref int i, int tl, String palabra2, ref String palabra3, ref String le, ref String lp)
         {
+            
             int intento = 0;
+            Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
             Console.WriteLine("_________ ");
             Console.WriteLine("|  | ");
             Console.WriteLine("|  0 ");
@@ -51,6 +54,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
                 if (exito)
                 {
+                    Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
                     Console.WriteLine("**************************");
                     Console.WriteLine("PALABRA = " + palabra3);
                     Console.WriteLine("**************************");
@@ -71,6 +75,11 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
                 if (intento == 5)
                 {
+
+
+                    Console.Clear();
+                    DrawHeader();
+                    Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
                     Console.WriteLine("|  X ");
@@ -86,12 +95,17 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("Has agotado todos tus intentos, ¡PIERDES!");
                     Console.WriteLine("************************************************************************");
                     Console.WriteLine();
-                    Console.WriteLine("LA PALABRA CORRECTA ERA {0}", palabra2);
+                    Console.WriteLine("LA PALABRA CORRECTA ERA ----->{0}", palabra2);
+                    Console.WriteLine();
                     Console.WriteLine("************************************************************************");
+                    Console.WriteLine();
                     
                 }
                 if (intento == 0)
                 {
+                    Console.Clear();
+                    DrawHeader();
+                    Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
                     Console.WriteLine("|  0 ");
@@ -108,17 +122,27 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 }
                 if (intento == 1)
                 {
+
+                    Console.Clear();
+                    DrawHeader();
+                    Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
                     Console.WriteLine("|  0 ");
                     Console.WriteLine("| /|\\ ");
                     Console.WriteLine("| /  ");
-                   
+                    Console.WriteLine("**************************");
+                    Console.WriteLine("PALABRA = " + palabra3);
+                    Console.WriteLine("**************************");
 
+                    
 
                 }
                 if (intento == 2)
                 {
+                    Console.Clear();
+                    DrawHeader();
+                    Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
                     Console.WriteLine("|  0 ");
@@ -128,10 +152,14 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("PALABRA = " + palabra3);
                     Console.WriteLine("**************************");
                     Console.WriteLine();
+                    
 
                 }
                 if (intento == 3)
                 {
+                    Console.Clear();
+                    DrawHeader();
+                    Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
                     Console.WriteLine("|  0 ");
@@ -141,11 +169,15 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("PALABRA = " + palabra3);
                     Console.WriteLine("**************************");
                     Console.WriteLine();
+                    
 
 
                 }
                 if (intento == 4)
                 {
+
+                    Console.Clear();
+                    DrawHeader();
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
                     Console.WriteLine("|  0 ");
@@ -155,6 +187,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("PALABRA = " + palabra3);
                     Console.WriteLine("**************************");
                     Console.WriteLine();
+                    
 
 
 
@@ -166,11 +199,12 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("ENHORABUENA! ¡GANASTE!");
                     break;
                 }
+
+
                 
-
                 
-
-
+               
+                
 
             }
             while (intento < 5);
@@ -228,6 +262,25 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             palabra2 = txt[numAleatorio];
             return palabra2;
         }
+        public static void DrawHeader()
+        {
+            Console.WriteLine("#####  #             #     #     #  #######  ######    #####      #     ######   #######");
+            Console.WriteLine("#      #            # #    #     #  #     #  #     #  #     #    # #    #     #  #     # ");
+            Console.WriteLine("#      #           #   #   #     #  #     #  #     #  #         #   #   #     #  #     # ");
+            Console.WriteLine("###    #          #     #  #######  #     #  ######   #        #     #  #     #  #     # ");
+            Console.WriteLine("#      #          #######  #     #  #     #  #   #    #        #######  #     #  #     # ");
+            Console.WriteLine("#      #          #     #  #     #  #     #  #    #   #     #  #     #  #     #  #     # ");
+            Console.WriteLine("#####  #######    #     #  #     #  #######  #     #   #####   #     #  ######   ####### ");
+            Console.WriteLine(".............................");
+            Console.WriteLine();
+            Console.WriteLine("JUEGO DEL AHORCADO");
+            Console.WriteLine("Versión 1.0");
+            Console.WriteLine("Autor : Antonio Sanz Llacer");
+            Console.WriteLine(".............................");
+            Console.WriteLine();
+            
+        }
+
         
 
     }

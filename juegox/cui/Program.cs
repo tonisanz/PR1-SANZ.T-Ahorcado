@@ -14,24 +14,19 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
         static void Main(string[] args)
         {
 
-           
-
-
-            
-            //Damos color a la consola y al texto
+            //DAMOS COLOR A LA CONSOLA Y AL TEXTO
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.White;
+            //LIMPIAMOS LA CONSOLA
             Console.Clear();
             
-            
+            //CREACION DE VARIABLES
             //Creamos una variable de tipo INT
             int i = 0;
-            
-
             //Creamos y damos valores vacios a las variables de tipo string
             String palabra2 = "", palabra3 = "", le = "", lp = ""; ;
-
             
+            //LLAMAMOS A LOS MÉTODOS ESTÁTICOS DE LA CLASE MODELOJUEGO
             //Extraemos la palabra aleatoria llamando a el proyecto ModeloJuego
             ModeloJuego.extraerPalabraAleatoria(ref palabra2);
             
@@ -39,6 +34,8 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
             //Escribimos el header del juego en consola
             ModeloJuego.DrawHeader();
             
+            //A PARTIR DE AQUI, CREAMOS UNA VARIABLE DATETIME, QUE CONTARÁ EL TIEMPO QUE TARDAMOS EN 
+            //GANAR O PERDER LA PARTIDA
             //CONTADOR DE TIEMPO
             DateTime tiempo1 = DateTime.Now;
             

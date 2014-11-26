@@ -8,35 +8,48 @@ using System.IO;
 
 namespace SanzA.Programacion.Eval1.Juego.Logica
 {
+    //CLASE ESTATICA QUE INCLUYE LOS MÉTODOS ESTÁTICOS QUE 
+    //DEBEN USARSE EN LA CLASE PROGRAM
     public static class ModeloJuego
     {
 
 
+        //METODO ESTATICO DÓNDE EL USUARIO ADIVINA LA PALABRA ESCOGIDA Y SE DIBUJA
+        //EN PANTALLA EL DIBUJO DEL AHORCADO SEGÚN LOS INTENTOS QUE LLEVE EL USUARIO
         public static void AdivinarPalabra(ref int i, int tl, String palabra2, ref String palabra3, ref String le, ref String lp)
         {
-            
+            Console.ResetColor();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             int intento = 0;
             Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
+            
             Console.WriteLine("_________ ");
             Console.WriteLine("|  | ");
             Console.WriteLine("|  0 ");
             Console.WriteLine("| /|\\ ");
             Console.WriteLine("| / \\ ");
+            Console.WriteLine("**************************");
+            Console.WriteLine("PALABRA = " + palabra3);
+            Console.WriteLine("**************************");
             
 
 
             do
             {
-                //String lp = "", le = "";
+                //BOOLEANO PARA SABER SI HEMOS ACERTADO O NO
                 Boolean exito = false;
+                //SACAMOS POR PANTALLA LAS LINEAS SIGUIENTES
                 Console.WriteLine("*********************");
                 Console.Write("PULSA UNA TECLA");
                 Console.Write("\nLETRA PULSADA = ");
                 
 
-
+                //ALMACENAMOS LA LETRA PULSADA EN LP
                 lp = Console.ReadLine();
+                //CONVERTIMOS LP A MAYÚSCULA POR SI EL USUARIO PULSA LA LETRA EN MINÚSCULA
                 lp=lp.ToUpper();
+                //INICIAMOS UN BUCLE FOR PARA INSERTAR LA LETRA EN PALABRA3
                 for (i = 0; i <= tl - 1; i++)
                 {
 
@@ -51,7 +64,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     }
 
                 }
-
+                //SI ACERTAMOS LA LETRA, SACAMOS LAS LINEAS SIGUIENTES EN PANTALLA
                 if (exito)
                 {
                     Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
@@ -62,6 +75,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                    
 
                 }
+                //SI NO ACERTAMOS, INCREMENTAMOS EN 1 UNIDAD LOS INTENTOS Y SACAMOS EN PANTALLA LO SIGUIENTE
                 else
                 {
                     intento++;
@@ -72,13 +86,19 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     
 
                 }
-
+                //SI INTENTO ES IGUAL A 5
                 if (intento == 5)
                 {
 
-
+                    //BORRAMOS LA CONSOLA
                     Console.Clear();
+                    //PINTAMOS EL HEADER DEL JUEGO
                     DrawHeader();
+                    //CAMBIAMOS EL COLOR DE LA CONSOLA A PARTIR DEL HEADER
+                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    //SACAMOS EN PANTALLA LO SIGUIENTE
                     Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
@@ -105,7 +125,11 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 {
                     Console.Clear();
                     DrawHeader();
+                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
+                    
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
                     Console.WriteLine("|  0 ");
@@ -125,7 +149,11 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
                     Console.Clear();
                     DrawHeader();
+                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
+                    
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
                     Console.WriteLine("|  0 ");
@@ -142,7 +170,11 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 {
                     Console.Clear();
                     DrawHeader();
+                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
+                    
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
                     Console.WriteLine("|  0 ");
@@ -159,7 +191,11 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 {
                     Console.Clear();
                     DrawHeader();
+                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
+                    
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
                     Console.WriteLine("|  0 ");
@@ -178,6 +214,9 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
                     Console.Clear();
                     DrawHeader();
+                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
                     Console.WriteLine("|  0 ");
@@ -193,7 +232,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
                 }
 
-
+                //SI PALABRA2 ES IGUAL A PALABRA3, GANA EL USUARIO
                 if (palabra2 == palabra3)
                 {
                     Console.WriteLine("ENHORABUENA! ¡GANASTE!");
@@ -207,8 +246,11 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 
 
             }
+            //TODO LO ANTERIOR SE REALIZARÁ MIENTRAS QUE EL INTENTO SEA MENOR QUE 5
             while (intento < 5);
         }
+        //METODO ESTATICO QUE RELLENA UN STRING CON INTERROGRACIONES O ESPACIOS
+        //PARA OCULTAR LA PALABRAS ESCOGIDA ALEATORIAMENTE
         public static void InterrogacionOEspacio(ref int i, int tl, String palabra2, ref String palabra3)
         {
             for (i = 1; i <= tl; i++)
@@ -221,49 +263,64 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             }
 
 
-            Console.WriteLine(palabra3);
+            
         }
+        //METODO ESTATICO QUE DEVUELVE UN STRING, EL CUAL EXTRAE UNA PALABRA ALEATORIA DE UN ARCHIVO DE TEXTO .TXT
         public static string extraerPalabraAleatoria(ref string palabra2)
         {
 
 
 
 
-            //Creamos un objeto aleatorio
+            //CREAMOS UN OBJETO ALEATORIO
 
             Random alea = new Random();
 
 
-
+            //CREAMOS UN STREAMREADER PARA LEER EL ARCHIVO DE TEXTO DÓNDE ESTÁN LAS PALABRAS
             StreamReader leerPalabra = new StreamReader("C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt");
+            //CREAMOS UN STRING, DONDE LEEMOS EL TXT ENTERO
             string texto = File.ReadAllText("C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt");
             //AVERIGUAMOS CUANTAS LINEAS TIENE EL TXT
+            //CREAMOS UN INT CORRESPONDIENTE AL NUMERO DE LINEAS, INICIALIZADO A CERO
             int numLineas = 0;
+            //CREAMOS UN INT CORRESPONDIENTE A UN CONTADOR PARA CONTAR LAS LINEAS QUE TINE EL TXT
             int i = 0;
-            
+            //CREAMOS UN STRING LLAMADO PALABRALEIDA PARA SABER LA PALABRA QUE HEMOS LEIDO EN EL TXT DESPUES DEL BUCLE
             string palabraLeida;
+            //CREAMOS OTRO STRING DE 100 ELEMENTOS, CORRESPONDIENTES A LAS PALABRAS DEL TXT
             String[] txt = new String[100];
-
+            //MIENTRAS QUE LA POSICION DE LEERPALABRA SE DISTINTO DE -1, ES DECIR A PARTIR DE CERO
             while (leerPalabra.Peek() != -1)
             {
-
+                //EL STRING PALABRALEIDA SERA IGUAL A LA LINEA QUE LEE EN EL TXT
                 palabraLeida=leerPalabra.ReadLine();
                 //ASIGNAMOS LA PALABRA LEIDA A LA POSICION DEL ARRAY
                 txt[i] = palabraLeida;
+                //INCREMENTAMOS LA VARIABLE DE TIPO INT "I" EN UNA UNIDAD
                 i++;
+                //INCREMENTAMOS EL NUMERO DE LINEAS EN UNA UNIDAD
                 numLineas++;
                 
                 
                 
 
             }
+            //MIENTRAS QUE LO ANTERIOR SE CUMPLA:
+            //LA VARIABLE NUMALETORIO SERA IGUAL A UN NUMERO ALEATORIO ENTRE 0 Y EL NUMERO DE LINEAS
             int numAleatorio = alea.Next(0, numLineas);
-            
+            //PALABRA2 SERA IGUAL A LA LINEA QUE OCUPA LA POSICION EN EL TXT DEL NUMERO ALEATORIO
             palabra2 = txt[numAleatorio];
+            //DEVOLVEMOS EL STRING PALABRA2
             return palabra2;
         }
+        //METODO ESTATICO QUE DIBUJA EL HEADER DEL JUEGO
         public static void DrawHeader()
         {
+            //DAMOS COLOR A LA CONSOLA
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.White;
+            //ESCRIBIMOS EN CONSOLA EL HEADER DEL JUEGO
             Console.WriteLine("#####  #             #     #     #  #######  ######    #####      #     ######   #######");
             Console.WriteLine("#      #            # #    #     #  #     #  #     #  #     #    # #    #     #  #     # ");
             Console.WriteLine("#      #           #   #   #     #  #     #  #     #  #         #   #   #     #  #     # ");

@@ -48,13 +48,24 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
             //SEGUNDA PARTE DEL CONTADOR DE TIEMPO
             DateTime tiempo2 = DateTime.Now;
             TimeSpan total = new TimeSpan(tiempo2.Ticks - tiempo1.Ticks);
+            Console.ResetColor();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("###################################");
-            Console.WriteLine("TIEMPO: " + total.ToString() + "  SEGUNDOS");
+            Console.ResetColor();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("TIEMPO: " + total.ToString() + "  HORAS");
+            Console.ResetColor();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("###################################");
             Console.WriteLine();
-            
+            Console.ResetColor();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             //ESCRIBIMOS EN CONSOLA LA FINALIZACIÓN DE LA PARTIDA
-            Console.WriteLine("-----> HASTA LUEGO!<------");
+            ModeloJuego.DrawEndProgram();
             Console.ReadLine();
             Console.Clear();
             

@@ -40,8 +40,10 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 //BOOLEANO PARA SABER SI HEMOS ACERTADO O NO
                 Boolean exito = false;
                 //SACAMOS POR PANTALLA LAS LINEAS SIGUIENTES
+                
                 Console.WriteLine("*********************");
                 Console.Write("PULSA UNA TECLA");
+                
                 Console.Write("\nLETRA PULSADA = ");
                 
 
@@ -60,18 +62,25 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                         palabra3 = palabra3.Remove(i, 1);
                         palabra3 = palabra3.Insert(i, lp);
                         exito = true;
+                        
 
                     }
 
+                   
+
+                    
                 }
                 //SI ACERTAMOS LA LETRA, SACAMOS LAS LINEAS SIGUIENTES EN PANTALLA
-                if (exito)
+                if (exito) 
                 {
                     Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
+                    
                     Console.WriteLine("**************************");
                     Console.WriteLine("PALABRA = " + palabra3);
                     Console.WriteLine("**************************");
                     Console.WriteLine();
+                    
+                    
                    
 
                 }
@@ -86,6 +95,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     
 
                 }
+                
                 //SI INTENTO ES IGUAL A 5
                 if (intento == 5)
                 {
@@ -94,31 +104,48 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.Clear();
                     //PINTAMOS EL HEADER DEL JUEGO
                     DrawHeader();
+                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    DrawNumber5();
                     //CAMBIAMOS EL COLOR DE LA CONSOLA A PARTIR DEL HEADER
                     Console.ResetColor();
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     //SACAMOS EN PANTALLA LO SIGUIENTE
+                    
                     Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
+                    
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
                     Console.WriteLine("|  X ");
                     Console.WriteLine("| /|\\");
                     Console.WriteLine("  / \\ ");
+                    
                     Console.WriteLine("**************************");
                     Console.WriteLine("PALABRA = " + palabra3);
                     Console.WriteLine("**************************");
                     Console.WriteLine();
-                    
 
-                    Console.WriteLine("************************************************************************");
+                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("Has agotado todos tus intentos, ¡PIERDES!");
-                    Console.WriteLine("************************************************************************");
+                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
                     Console.WriteLine();
+                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("LA PALABRA CORRECTA ERA ----->{0}", palabra2);
                     Console.WriteLine();
-                    Console.WriteLine("************************************************************************");
-                    Console.WriteLine();
+                    
                     
                 }
                 if (intento == 0)
@@ -149,6 +176,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
                     Console.Clear();
                     DrawHeader();
+                    DrawNumber1();
                     Console.ResetColor();
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -173,6 +201,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.ResetColor();
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.Yellow;
+                    DrawNumber2();
                     Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
                     
                     Console.WriteLine("_________ ");
@@ -191,6 +220,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 {
                     Console.Clear();
                     DrawHeader();
+                    DrawNumber3();
                     Console.ResetColor();
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -217,6 +247,8 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.ResetColor();
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.Yellow;
+                    DrawNumber4();
+                    Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
                     Console.WriteLine("|  0 ");
@@ -236,6 +268,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 if (palabra2 == palabra3)
                 {
                     Console.WriteLine("ENHORABUENA! ¡GANASTE!");
+                    DrawHandOk();
                     break;
                 }
 
@@ -321,13 +354,23 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.White;
             //ESCRIBIMOS EN CONSOLA EL HEADER DEL JUEGO
-            Console.WriteLine("#####  #             #     #     #  #######  ######    #####      #     ######   #######");
-            Console.WriteLine("#      #            # #    #     #  #     #  #     #  #     #    # #    #     #  #     # ");
-            Console.WriteLine("#      #           #   #   #     #  #     #  #     #  #         #   #   #     #  #     # ");
-            Console.WriteLine("###    #          #     #  #######  #     #  ######   #        #     #  #     #  #     # ");
-            Console.WriteLine("#      #          #######  #     #  #     #  #   #    #        #######  #     #  #     # ");
-            Console.WriteLine("#      #          #     #  #     #  #     #  #    #   #     #  #     #  #     #  #     # ");
-            Console.WriteLine("#####  #######    #     #  #     #  #######  #     #   #####   #     #  ######   ####### ");
+            Console.WriteLine("███████╗██╗          █████╗ ██╗  ██╗ ██████╗ ██████╗  ██████╗ █████╗ ██████╗  ██████╗ ");
+            Console.WriteLine("██╔════╝██║         ██╔══██╗██║  ██║██╔═══██╗██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔═══██╗");
+            Console.WriteLine("█████╗  ██║         ███████║███████║██║   ██║██████╔╝██║     ███████║██║  ██║██║   ██║");
+            Console.WriteLine("██╔══╝  ██║         ██╔══██║██╔══██║██║   ██║██╔══██╗██║     ██╔══██║██║  ██║██║   ██║");
+            Console.WriteLine("███████╗███████╗    ██║  ██║██║  ██║╚██████╔╝██║  ██║╚██████╗██║  ██║██████╔╝╚██████╔╝");
+            Console.WriteLine("╚══════╝╚══════╝    ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═════╝  ╚═════╝ ");
+            
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.ResetColor();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(".............................");
             Console.WriteLine();
             Console.WriteLine("JUEGO DEL AHORCADO");
@@ -336,7 +379,107 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             Console.WriteLine(".............................");
             Console.WriteLine();
             
+
         }
+        //METODO ESTATICO QUE DIBUJA UNA MANO(OK)
+        public static void DrawHandOk()
+        {
+            
+        Console.WriteLine("░░░░░░░░░░░░▄▄");
+        Console.WriteLine("░░░░░░░░░░░█░░█");
+        Console.WriteLine("░░░░░░░░░░░█░░█");
+        Console.WriteLine("░░░░░░░░░░█░░░█");
+        Console.WriteLine("░░░░░░░░░█░░░░█");
+        Console.WriteLine("███████▄▄█░░░░░██████▄");
+        Console.WriteLine("▓▓▓▓▓▓█░░░░░░░░░░░░░░█");
+        Console.WriteLine("▓▓▓▓▓▓█░░░░░░░░░░░░░░█");
+        Console.WriteLine("▓▓▓▓▓▓█░░░░░░░░░░░░░░█");
+        Console.WriteLine("▓▓▓▓▓▓█░░░░░░░░░░░░░░█");
+        Console.WriteLine("▓▓▓▓▓▓█░░░░░░░░░░░░░░█");
+        Console.WriteLine("▓▓▓▓▓▓█████░░░░░░░░░█");
+        Console.WriteLine("██████▀░░░░▀▀██████▀");
+
+        }
+        public static void DrawNumber1()
+        {
+            
+
+        Console.WriteLine(" ██╗    ██╗███╗   ██╗████████╗███████╗███╗   ██╗████████╗ ██████╗ ");
+        Console.WriteLine("███║    ██║████╗  ██║╚══██╔══╝██╔════╝████╗  ██║╚══██╔══╝██╔═══██╗");
+        Console.WriteLine("╚██║    ██║██╔██╗ ██║   ██║   █████╗  ██╔██╗ ██║   ██║   ██║   ██║");
+        Console.WriteLine(" ██║    ██║██║╚██╗██║   ██║   ██╔══╝  ██║╚██╗██║   ██║   ██║   ██║");
+        Console.WriteLine(" ██║    ██║██║ ╚████║   ██║   ███████╗██║ ╚████║   ██║   ╚██████╔╝");
+        Console.WriteLine(" ╚═╝    ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═══╝   ╚═╝    ╚═════╝ ");
+                                                                  
+
+
+        }
+        public static void DrawNumber2()
+        {
+            Console.WriteLine("██████╗     ██╗███╗   ██╗████████╗███████╗███╗   ██╗████████╗ ██████╗ ███████╗");
+            Console.WriteLine("╚════██╗    ██║████╗  ██║╚══██╔══╝██╔════╝████╗  ██║╚══██╔══╝██╔═══██╗██╔════╝");
+            Console.WriteLine(" █████╔╝    ██║██╔██╗ ██║   ██║   █████╗  ██╔██╗ ██║   ██║   ██║   ██║███████╗");
+            Console.WriteLine("██╔═══╝     ██║██║╚██╗██║   ██║   ██╔══╝  ██║╚██╗██║   ██║   ██║   ██║╚════██║");
+            Console.WriteLine("███████╗    ██║██║ ╚████║   ██║   ███████╗██║ ╚████║   ██║   ╚██████╔╝███████║");
+            Console.WriteLine("╚══════╝    ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═══╝   ╚═╝    ╚═════╝ ╚══════╝");
+
+
+        }
+        public static void DrawNumber3()
+        {
+            Console.WriteLine("██████╗     ██╗███╗   ██╗████████╗███████╗███╗   ██╗████████╗ ██████╗ ███████╗");
+            Console.WriteLine("╚════██╗    ██║████╗  ██║╚══██╔══╝██╔════╝████╗  ██║╚══██╔══╝██╔═══██╗██╔════╝");
+            Console.WriteLine(" █████╔╝    ██║██╔██╗ ██║   ██║   █████╗  ██╔██╗ ██║   ██║   ██║   ██║███████╗");
+            Console.WriteLine(" ╚═══██╗    ██║██║╚██╗██║   ██║   ██╔══╝  ██║╚██╗██║   ██║   ██║   ██║╚════██║");
+            Console.WriteLine("███████╗    ██║██║ ╚████║   ██║   ███████╗██║ ╚████║   ██║   ╚██████╔╝███████║");
+            Console.WriteLine("╚══════╝    ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═══╝   ╚═╝    ╚═════╝ ╚══════╝");
+            
+                                                                              
+        }
+        public static void DrawNumber4()
+        {
+            Console.WriteLine("██╗  ██╗    ██╗███╗   ██╗████████╗███████╗███╗   ██╗████████╗ ██████╗ ███████╗");
+            Console.WriteLine("██║  ██║    ██║████╗  ██║╚══██╔══╝██╔════╝████╗  ██║╚══██╔══╝██╔═══██╗██╔════╝");
+            Console.WriteLine("███████║    ██║██╔██╗ ██║   ██║   █████╗  ██╔██╗ ██║   ██║   ██║   ██║███████╗");
+            Console.WriteLine("╚════██║    ██║██║╚██╗██║   ██║   ██╔══╝  ██║╚██╗██║   ██║   ██║   ██║╚════██║");
+            Console.WriteLine("     ██║    ██║██║ ╚████║   ██║   ███████╗██║ ╚████║   ██║   ╚██████╔╝███████║");
+            Console.WriteLine("     ╚═╝    ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═══╝   ╚═╝    ╚═════╝ ╚══════╝");
+
+
+        }
+        public static void DrawNumber5()
+        {
+            Console.WriteLine("███████╗    ██╗███╗   ██╗████████╗███████╗███╗   ██╗████████╗ ██████╗ ███████╗");
+            Console.WriteLine("██╔════╝    ██║████╗  ██║╚══██╔══╝██╔════╝████╗  ██║╚══██╔══╝██╔═══██╗██╔════╝");
+            Console.WriteLine("███████╗    ██║██╔██╗ ██║   ██║   █████╗  ██╔██╗ ██║   ██║   ██║   ██║███████╗");
+            Console.WriteLine("╚════██║    ██║██║╚██╗██║   ██║   ██╔══╝  ██║╚██╗██║   ██║   ██║   ██║╚════██║");
+            Console.WriteLine("███████╗    ██║██║ ╚████║   ██║   ███████╗██║ ╚████║   ██║   ╚██████╔╝███████║");
+            Console.WriteLine("╚══════╝    ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═══╝   ╚═╝    ╚═════╝ ╚══════╝");
+
+        }
+        public static void DrawEndProgram()
+        {
+            Console.WriteLine("███████╗██╗███╗   ██╗    ██████╗ ███████╗██╗              ██╗██╗   ██╗███████╗ ██████╗  ██████╗ ");
+            Console.WriteLine("██╔════╝██║████╗  ██║    ██╔══██╗██╔════╝██║              ██║██║   ██║██╔════╝██╔════╝ ██╔═══██╗");
+            Console.WriteLine("█████╗  ██║██╔██╗ ██║    ██║  ██║█████╗  ██║              ██║██║   ██║█████╗  ██║  ███╗██║   ██║");
+            Console.WriteLine("██╔══╝  ██║██║╚██╗██║    ██║  ██║██╔══╝  ██║         ██   ██║██║   ██║██╔══╝  ██║   ██║██║   ██║");
+            Console.WriteLine("██║     ██║██║ ╚████║    ██████╔╝███████╗███████╗    ╚█████╔╝╚██████╔╝███████╗╚██████╔╝╚██████╔╝");
+            Console.WriteLine("╚═╝     ╚═╝╚═╝  ╚═══╝    ╚═════╝ ╚══════╝╚══════╝     ╚════╝  ╚═════╝ ╚══════╝ ╚═════╝  ╚═════╝ ");
+
+        }
+
+
+
+
+
+                                                                                                
+
+
+        
+
+
+                                                                              
+
 
         
 

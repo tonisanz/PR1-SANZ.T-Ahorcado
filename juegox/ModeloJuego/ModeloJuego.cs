@@ -16,13 +16,13 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
         //METODO ESTATICO DÓNDE EL USUARIO ADIVINA LA PALABRA ESCOGIDA Y SE DIBUJA
         //EN PANTALLA EL DIBUJO DEL AHORCADO SEGÚN LOS INTENTOS QUE LLEVE EL USUARIO
-        public static void AdivinarPalabra(ref int i, int tl, String palabra2, ref String palabra3, ref String le, ref String lp)
+        public static void AdivinarPalabraSecreta(ref int i, int teclaLeida, String palabraSecreta, ref String palabraJugador, ref String letraEntrada, ref String letraPulsada)
         {
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.Yellow;
             int intento = 0;
-            Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
+            Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
             
             Console.WriteLine("_________ ");
             Console.WriteLine("|  | ");
@@ -30,7 +30,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             Console.WriteLine("| /|\\ ");
             Console.WriteLine("| / \\ ");
             Console.WriteLine("**************************");
-            Console.WriteLine("PALABRA = " + palabra3);
+            Console.WriteLine("PALABRA = " + palabraJugador);
             Console.WriteLine("**************************");
             
 
@@ -48,19 +48,19 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 
 
                 //ALMACENAMOS LA LETRA PULSADA EN LP
-                lp = Console.ReadLine();
+                letraPulsada = Console.ReadLine();
                 //CONVERTIMOS LP A MAYÚSCULA POR SI EL USUARIO PULSA LA LETRA EN MINÚSCULA
-                lp=lp.ToUpper();
+                letraPulsada=letraPulsada.ToUpper();
                 //INICIAMOS UN BUCLE FOR PARA INSERTAR LA LETRA EN PALABRA3
-                for (i = 0; i <= tl - 1; i++)
+                for (i = 0; i <= teclaLeida - 1; i++)
                 {
 
-                    le = palabra2.Substring(i, 1);
-                    if (le.Equals(lp))
+                    letraEntrada = palabraSecreta.Substring(i, 1);
+                    if (letraEntrada.Equals(letraPulsada))
                     {
 
-                        palabra3 = palabra3.Remove(i, 1);
-                        palabra3 = palabra3.Insert(i, lp);
+                        palabraJugador = palabraJugador.Remove(i, 1);
+                        palabraJugador = palabraJugador.Insert(i, letraPulsada);
                         exito = true;
                         
 
@@ -73,10 +73,10 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 //SI ACERTAMOS LA LETRA, SACAMOS LAS LINEAS SIGUIENTES EN PANTALLA
                 if (exito) 
                 {
-                    Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
+                    Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
                     
                     Console.WriteLine("**************************");
-                    Console.WriteLine("PALABRA = " + palabra3);
+                    Console.WriteLine("PALABRA = " + palabraJugador);
                     Console.WriteLine("**************************");
                     Console.WriteLine();
                     
@@ -114,7 +114,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     //SACAMOS EN PANTALLA LO SIGUIENTE
                     
-                    Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
+                    Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
                     
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
@@ -123,7 +123,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("  / \\ ");
                     
                     Console.WriteLine("**************************");
-                    Console.WriteLine("PALABRA = " + palabra3);
+                    Console.WriteLine("PALABRA = " + palabraJugador);
                     Console.WriteLine("**************************");
                     Console.WriteLine();
 
@@ -143,7 +143,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.ResetColor();
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("LA PALABRA CORRECTA ERA ----->{0}", palabra2);
+                    Console.WriteLine("LA PALABRA CORRECTA ERA ----->{0}", palabraSecreta);
                     Console.WriteLine();
                     
                     
@@ -155,7 +155,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.ResetColor();
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
+                    Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
                     
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
@@ -163,7 +163,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("| /|\\ ");
                     Console.WriteLine("| / \\ ");
                     Console.WriteLine("**************************");
-                    Console.WriteLine("PALABRA = " + palabra3);
+                    Console.WriteLine("PALABRA = " + palabraJugador);
                     Console.WriteLine("**************************");
                     Console.WriteLine();
                    
@@ -180,7 +180,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.ResetColor();
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
+                    Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
                     
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
@@ -188,7 +188,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("| /|\\ ");
                     Console.WriteLine("| /  ");
                     Console.WriteLine("**************************");
-                    Console.WriteLine("PALABRA = " + palabra3);
+                    Console.WriteLine("PALABRA = " + palabraJugador);
                     Console.WriteLine("**************************");
 
                     
@@ -202,7 +202,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     DrawNumber2();
-                    Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
+                    Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
                     
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
@@ -210,7 +210,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("| /|\\ ");
                     Console.WriteLine("|  ");
                     Console.WriteLine("**************************");
-                    Console.WriteLine("PALABRA = " + palabra3);
+                    Console.WriteLine("PALABRA = " + palabraJugador);
                     Console.WriteLine("**************************");
                     Console.WriteLine();
                     
@@ -224,7 +224,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.ResetColor();
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
+                    Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
                     
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
@@ -232,7 +232,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("| /| ");
                     Console.WriteLine("|  ");
                     Console.WriteLine("**************************");
-                    Console.WriteLine("PALABRA = " + palabra3);
+                    Console.WriteLine("PALABRA = " + palabraJugador);
                     Console.WriteLine("**************************");
                     Console.WriteLine();
                     
@@ -248,14 +248,14 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     DrawNumber4();
-                    Console.WriteLine("\nLA PALABRA TIENE " + palabra2.Length + " LETRAS");
+                    Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
                     Console.WriteLine("_________ ");
                     Console.WriteLine("|  | ");
                     Console.WriteLine("|  0 ");
                     Console.WriteLine("|  ");
                     Console.WriteLine("|  ");
                     Console.WriteLine("**************************");
-                    Console.WriteLine("PALABRA = " + palabra3);
+                    Console.WriteLine("PALABRA = " + palabraJugador);
                     Console.WriteLine("**************************");
                     Console.WriteLine();
                     
@@ -265,7 +265,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 }
 
                 //SI PALABRA2 ES IGUAL A PALABRA3, GANA EL USUARIO
-                if (palabra2 == palabra3)
+                if (palabraSecreta == palabraJugador)
                 {
                     Console.WriteLine("ENHORABUENA! ¡GANASTE!");
                     DrawHandOk();
@@ -284,14 +284,14 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
         }
         //METODO ESTATICO QUE RELLENA UN STRING CON INTERROGRACIONES O ESPACIOS
         //PARA OCULTAR LA PALABRAS ESCOGIDA ALEATORIAMENTE
-        public static void InterrogacionOEspacio(ref int i, int tl, String palabra2, ref String palabra3)
+        public static void InsertarInterrogacionOEspacioEnPalabraSecreta(ref int i, int teclaLeida, String palabraSecreta, ref String palabraJugador)
         {
-            for (i = 1; i <= tl; i++)
+            for (i = 1; i <= teclaLeida; i++)
             {
-                if (palabra2.Substring(i, 0) != " ")
-                    palabra3 = palabra3 + "?";
+                if (palabraSecreta.Substring(i, 0) != " ")
+                    palabraJugador = palabraJugador + "?";
                 else
-                    palabra3 = palabra3 + " ";
+                    palabraJugador = palabraJugador + " ";
 
             }
 
@@ -299,7 +299,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             
         }
         //METODO ESTATICO QUE DEVUELVE UN STRING, EL CUAL EXTRAE UNA PALABRA ALEATORIA DE UN ARCHIVO DE TEXTO .TXT
-        public static string extraerPalabraAleatoria(ref string palabra2)
+        public static string extraerPalabraAleatoria(ref string palabraSecreta)
         {
 
 
@@ -343,9 +343,9 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             //LA VARIABLE NUMALETORIO SERA IGUAL A UN NUMERO ALEATORIO ENTRE 0 Y EL NUMERO DE LINEAS
             int numAleatorio = alea.Next(0, numLineas);
             //PALABRA2 SERA IGUAL A LA LINEA QUE OCUPA LA POSICION EN EL TXT DEL NUMERO ALEATORIO
-            palabra2 = txt[numAleatorio];
+            palabraSecreta = txt[numAleatorio];
             //DEVOLVEMOS EL STRING PALABRA2
-            return palabra2;
+            return palabraSecreta;
         }
         //METODO ESTATICO QUE DIBUJA EL HEADER DEL JUEGO
         public static void DrawHeader()

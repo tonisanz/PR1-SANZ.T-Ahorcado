@@ -26,11 +26,11 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
             //Creamos y damos valores vacios a las variables de tipo string
             //Palabra2 => palabraSecreta
             //Palabra2 => palabraJugador
-            String palabra2 = "", palabra3 = "", le = "", lp = ""; ;
+            String palabraSecreta = "", palabraJugador = "", letraEntrada = "", letraPulsada = ""; ;
             
             //LLAMAMOS A LOS MÉTODOS ESTÁTICOS DE LA CLASE MODELOJUEGO
             //Extraemos la palabra aleatoria llamando a el proyecto ModeloJuego
-            ModeloJuego.extraerPalabraAleatoria(ref palabra2);
+            ModeloJuego.extraerPalabraAleatoria(ref palabraSecreta);
             
 
             //Escribimos el header del juego en consola
@@ -39,17 +39,17 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
             //UNA VARIABLE QUE CONTARÁ EL TIEMPO QUE TARDAMOS EN 
             //GANAR O PERDER LA PARTIDA
             //CONTADOR DE TIEMPO
-            DateTime tiempo1 = DateTime.Now;
+            DateTime tiempoInicio = DateTime.Now;
             
             //Llamamos InterrogacionOespacio para poner el simbolo ? o un espacio
-            ModeloJuego.InterrogacionOEspacio(ref i, palabra2.Length, palabra2, ref palabra3);
+            ModeloJuego.InsertarInterrogacionOEspacioEnPalabraSecreta(ref i, palabraSecreta.Length, palabraSecreta, ref palabraJugador);
 
             //Llamamos al método AdivinarPalabra para empezar a jugar
-            ModeloJuego.AdivinarPalabra(ref i, palabra2.Length, palabra2, ref palabra3, ref le, ref lp);
+            ModeloJuego.AdivinarPalabraSecreta(ref i, palabraSecreta.Length, palabraSecreta, ref palabraJugador, ref letraEntrada, ref letraPulsada);
 
             //SEGUNDA PARTE DEL CONTADOR DE TIEMPO
-            DateTime tiempo2 = DateTime.Now;
-            TimeSpan total = new TimeSpan(tiempo2.Ticks - tiempo1.Ticks);
+            DateTime tiempoFinal = DateTime.Now;
+            double total =(tiempoFinal - tiempoInicio).TotalSeconds;
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.Green;
@@ -57,7 +57,7 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("TIEMPO: " + total.ToString() + "  HORAS");
+            Console.WriteLine("TIEMPO: " + total.ToString() + "  SEGUNDOS");
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.Green;

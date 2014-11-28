@@ -21,9 +21,11 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
             Console.Clear();
             
             //CREACION DE VARIABLES
-            //Creamos una variable de tipo INT
+            //Contador de letras de la palabra a adivinar
             int i = 0;
             //Creamos y damos valores vacios a las variables de tipo string
+            //Palabra2 => palabraSecreta
+            //Palabra2 => palabraJugador
             String palabra2 = "", palabra3 = "", le = "", lp = ""; ;
             
             //LLAMAMOS A LOS MÉTODOS ESTÁTICOS DE LA CLASE MODELOJUEGO
@@ -34,12 +36,12 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
             //Escribimos el header del juego en consola
             ModeloJuego.DrawHeader();
             
-            //A PARTIR DE AQUI, CREAMOS UNA VARIABLE DATETIME, QUE CONTARÁ EL TIEMPO QUE TARDAMOS EN 
+            //UNA VARIABLE QUE CONTARÁ EL TIEMPO QUE TARDAMOS EN 
             //GANAR O PERDER LA PARTIDA
             //CONTADOR DE TIEMPO
             DateTime tiempo1 = DateTime.Now;
             
-            //Llamamos al bucle for, InterrogacionOespacio para poner el simbolo ? o un espacio
+            //Llamamos InterrogacionOespacio para poner el simbolo ? o un espacio
             ModeloJuego.InterrogacionOEspacio(ref i, palabra2.Length, palabra2, ref palabra3);
 
             //Llamamos al método AdivinarPalabra para empezar a jugar

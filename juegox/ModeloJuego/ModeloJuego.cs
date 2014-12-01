@@ -12,7 +12,71 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
     //DEBEN USARSE EN LA CLASE PROGRAM
     public static class ModeloJuego
     {
+        
+        //METODO QUE INICIALIZA EL JUEGO
+        public static void InicializarJuego()
+        {
+            //DAMOS COLOR A LA CONSOLA Y AL TEXTO
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.White;
+            //LIMPIAMOS LA CONSOLA
+            Console.Clear();
 
+            //CREACION DE VARIABLES
+            //Contador de letras de la palabra a adivinar
+            int i = 0;
+            //Creamos y damos valores vacios a las variables de tipo string
+            //Palabra2 => palabraSecreta
+            //Palabra2 => palabraJugador
+            String palabraSecreta = "", palabraJugador = "", letraEntrada = "", letraPulsada = ""; ;
+
+            //LLAMAMOS A LOS MÉTODOS ESTÁTICOS DE LA CLASE MODELOJUEGO
+            //Extraemos la palabra aleatoria llamando a el proyecto ModeloJuego
+            ModeloJuego.extraerPalabraAleatoria(ref palabraSecreta);
+
+
+            //Escribimos el header del juego en consola
+            ModeloJuego.DrawHeader();
+
+            //UNA VARIABLE QUE CONTARÁ EL TIEMPO QUE TARDAMOS EN 
+            //GANAR O PERDER LA PARTIDA
+            //CONTADOR DE TIEMPO
+            DateTime tiempoInicio = DateTime.Now;
+
+            //Llamamos InterrogacionOespacio para poner el simbolo ? o un espacio
+            ModeloJuego.InsertarInterrogacionOEspacioEnPalabraSecreta(ref i, palabraSecreta.Length, palabraSecreta, ref palabraJugador);
+
+            //Llamamos al método AdivinarPalabra para empezar a jugar
+            ModeloJuego.AdivinarPalabraSecreta(ref i, palabraSecreta.Length, palabraSecreta, ref palabraJugador, ref letraEntrada, ref letraPulsada);
+            
+            //SEGUNDA PARTE DEL CONTADOR DE TIEMPO
+            DateTime tiempoFinal = DateTime.Now;
+            double total = (tiempoFinal - tiempoInicio).TotalSeconds;
+            Console.ResetColor();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("###################################");
+            Console.ResetColor();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("TIEMPO: " + total.ToString() + "  SEGUNDOS");
+            Console.ResetColor();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("###################################");
+            Console.WriteLine();
+            Console.ResetColor();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            //ESCRIBIMOS EN CONSOLA LA FINALIZACIÓN DE LA PARTIDA
+            ModeloJuego.DrawEndProgram();
+            
+            
+        }
+        
+       
+  
+        //a
 
         //METODO ESTATICO DÓNDE EL USUARIO ADIVINA LA PALABRA ESCOGIDA Y SE DIBUJA
         //EN PANTALLA EL DIBUJO DEL AHORCADO SEGÚN LOS INTENTOS QUE LLEVE EL USUARIO
@@ -32,6 +96,8 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             Console.WriteLine("**************************");
             Console.WriteLine("PALABRA = " + palabraJugador);
             Console.WriteLine("**************************");
+
+            
             
 
 
@@ -45,6 +111,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 Console.Write("PULSA UNA TECLA");
                 
                 Console.Write("\nLETRA PULSADA = ");
+                
                 
 
                 //ALMACENAMOS LA LETRA PULSADA EN LP
@@ -70,6 +137,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
                     
                 }
+                
                 //SI ACERTAMOS LA LETRA, SACAMOS LAS LINEAS SIGUIENTES EN PANTALLA
                 if (exito) 
                 {
@@ -79,7 +147,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("PALABRA = " + palabraJugador);
                     Console.WriteLine("**************************");
                     Console.WriteLine();
-                    
+                  
                     
                    
 
@@ -92,9 +160,11 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     Console.WriteLine("La letra introducida no corresponde a la palabra, llevas " + intento + " intento");
                     Console.WriteLine("************************************************************************");
                     Console.WriteLine();
-                    
+                   
 
                 }
+
+                
                 
                 //SI INTENTO ES IGUAL A 5
                 if (intento == 5)
@@ -271,8 +341,8 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                     DrawHandOk();
                     break;
                 }
-
-
+                
+                
                 
                 
                
@@ -339,13 +409,19 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 
 
             }
+
             //MIENTRAS QUE LO ANTERIOR SE CUMPLA:
             //LA VARIABLE NUMALETORIO SERA IGUAL A UN NUMERO ALEATORIO ENTRE 0 Y EL NUMERO DE LINEAS
             int numAleatorio = alea.Next(0, numLineas);
             //PALABRA2 SERA IGUAL A LA LINEA QUE OCUPA LA POSICION EN EL TXT DEL NUMERO ALEATORIO
             palabraSecreta = txt[numAleatorio];
+            
             //DEVOLVEMOS EL STRING PALABRA2
             return palabraSecreta;
+
+            
+
+            
         }
         //METODO ESTATICO QUE DIBUJA EL HEADER DEL JUEGO
         public static void DrawHeader()

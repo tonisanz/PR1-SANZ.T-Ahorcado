@@ -13,63 +13,29 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
     {
         static void Main(string[] args)
         {
+            //LLAMAMOS AL METODO QUE INICIALIZA EL JUEGO
+            ModeloJuego.InicializarJuego();
+            
+            //LLAMAMOS AL METODO JugarOtraPartida PARA PODER ELEGIR 
+            //SI QUEREMOS JUGAR OTRA VEZ UNA VEZ HALLA FINALIZADA
+            //LA PARTIDA ANTERIOR
 
-            //DAMOS COLOR A LA CONSOLA Y AL TEXTO
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.ForegroundColor = ConsoleColor.White;
-            //LIMPIAMOS LA CONSOLA
-            Console.Clear();
-            
-            //CREACION DE VARIABLES
-            //Contador de letras de la palabra a adivinar
-            int i = 0;
-            //Creamos y damos valores vacios a las variables de tipo string
-            //Palabra2 => palabraSecreta
-            //Palabra2 => palabraJugador
-            String palabraSecreta = "", palabraJugador = "", letraEntrada = "", letraPulsada = ""; ;
-            
-            //LLAMAMOS A LOS MÉTODOS ESTÁTICOS DE LA CLASE MODELOJUEGO
-            //Extraemos la palabra aleatoria llamando a el proyecto ModeloJuego
-            ModeloJuego.extraerPalabraAleatoria(ref palabraSecreta);
-            
 
-            //Escribimos el header del juego en consola
-            ModeloJuego.DrawHeader();
-            
-            //UNA VARIABLE QUE CONTARÁ EL TIEMPO QUE TARDAMOS EN 
-            //GANAR O PERDER LA PARTIDA
-            //CONTADOR DE TIEMPO
-            DateTime tiempoInicio = DateTime.Now;
-            
-            //Llamamos InterrogacionOespacio para poner el simbolo ? o un espacio
-            ModeloJuego.InsertarInterrogacionOEspacioEnPalabraSecreta(ref i, palabraSecreta.Length, palabraSecreta, ref palabraJugador);
+            Boolean jugarOtra;
 
-            //Llamamos al método AdivinarPalabra para empezar a jugar
-            ModeloJuego.AdivinarPalabraSecreta(ref i, palabraSecreta.Length, palabraSecreta, ref palabraJugador, ref letraEntrada, ref letraPulsada);
+            do
+            {
+                
+                Console.WriteLine("QUIERES JUGAR OTRA PARTIDA? S/N");
+                string respuestaJugador = Console.ReadLine();
+                respuestaJugador.ToUpper();
+                jugarOtra = false;
+                if (respuestaJugador == "s" || respuestaJugador == "S") { ModeloJuego.InicializarJuego(); jugarOtra = true; }
+                else Console.WriteLine("HASTA LUEGO!");
+            } while (jugarOtra == true);
 
-            //SEGUNDA PARTE DEL CONTADOR DE TIEMPO
-            DateTime tiempoFinal = DateTime.Now;
-            double total =(tiempoFinal - tiempoInicio).TotalSeconds;
-            Console.ResetColor();
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("###################################");
-            Console.ResetColor();
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("TIEMPO: " + total.ToString() + "  SEGUNDOS");
-            Console.ResetColor();
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("###################################");
-            Console.WriteLine();
-            Console.ResetColor();
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            //ESCRIBIMOS EN CONSOLA LA FINALIZACIÓN DE LA PARTIDA
-            ModeloJuego.DrawEndProgram();
-            Console.ReadLine();
-            Console.Clear();
+            Console.Read();
+
             
             
             
@@ -77,6 +43,7 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
            
         }
 
+        
 
         
     }

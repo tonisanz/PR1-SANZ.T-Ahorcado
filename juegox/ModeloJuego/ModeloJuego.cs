@@ -76,7 +76,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
         
        
   
-        //a
+        
 
         //METODO ESTATICO DÓNDE EL USUARIO ADIVINA LA PALABRA ESCOGIDA Y SE DIBUJA
         //EN PANTALLA EL DIBUJO DEL AHORCADO SEGÚN LOS INTENTOS QUE LLEVE EL USUARIO

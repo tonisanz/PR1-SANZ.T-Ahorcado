@@ -13,13 +13,12 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
     {
         static void Main(string[] args)
         {
-            //LLAMAMOS AL METODO QUE INICIALIZA EL JUEGO
+            ModeloJuego.DrawHeader();
+            Console.ResetColor();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.White;
             ModeloJuego.InicializarJuego();
             
-            //LLAMAMOS AL METODO JugarOtraPartida PARA PODER ELEGIR 
-            //SI QUEREMOS JUGAR OTRA VEZ UNA VEZ HALLA FINALIZADA
-            //LA PARTIDA ANTERIOR
-
 
             Boolean jugarOtra;
 
@@ -43,7 +42,11 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
            
         }
 
-        
+       
+
+
+
+
 
         
     }

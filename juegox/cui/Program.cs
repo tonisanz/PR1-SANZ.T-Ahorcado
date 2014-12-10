@@ -18,7 +18,7 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.White;
             
-            ModeloJuego.InicializarJuego();
+            ModeloJuego.InitializeHangmanGame();
             
 
             Boolean jugarOtra;
@@ -30,7 +30,7 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
                 string respuestaJugador = Console.ReadLine();
                 respuestaJugador.ToUpper();
                 jugarOtra = false;
-                if (respuestaJugador == "s" || respuestaJugador == "S") { ModeloJuego.InicializarJuego(); jugarOtra = true; }
+                if (respuestaJugador == "s" || respuestaJugador == "S") { ModeloJuego.InitializeHangmanGame(); jugarOtra = true; }
                 else Console.WriteLine("HASTA LUEGO!");
             } while (jugarOtra == true);
 

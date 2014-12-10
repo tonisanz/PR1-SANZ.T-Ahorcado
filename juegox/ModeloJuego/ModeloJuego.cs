@@ -14,7 +14,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
     {
 
         //METODO QUE INICIALIZA EL JUEGO
-        public static void InicializarJuego()
+        public static void InitializeHangmanGame()
         {
             //DAMOS COLOR A LA CONSOLA Y AL TEXTO
             Console.BackgroundColor = ConsoleColor.Blue;
@@ -32,7 +32,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
             //LLAMAMOS A LOS MÉTODOS ESTÁTICOS DE LA CLASE MODELOJUEGO
             //Extraemos la palabra aleatoria llamando a el proyecto ModeloJuego
-            ModeloJuego.extraerPalabraAleatoria(ref palabraSecreta);
+            ModeloJuego.RemoveRandomWord(ref palabraSecreta);
 
 
             //Escribimos el header del juego en consola
@@ -44,10 +44,10 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             DateTime tiempoInicio = DateTime.Now;
 
             //Llamamos InterrogacionOespacio para poner el simbolo ? o un espacio
-            ModeloJuego.InsertarInterrogacionOEspacioEnPalabraSecreta(ref i, palabraSecreta.Length, palabraSecreta, ref palabraJugador);
+            ModeloJuego.InsertInterrogationOrSpaceInSecretWord(ref i, palabraSecreta.Length, palabraSecreta, ref palabraJugador);
 
             //Llamamos al método AdivinarPalabra para empezar a jugar
-            ModeloJuego.AdivinarPalabraSecreta(ref i, palabraSecreta.Length, palabraSecreta, ref palabraJugador, ref letraEntrada, ref letraPulsada);
+            ModeloJuego.DrawHangmanAndGuessSecretWord(ref i, palabraSecreta.Length, palabraSecreta, ref palabraJugador, ref letraEntrada, ref letraPulsada);
 
             //SEGUNDA PARTE DEL CONTADOR DE TIEMPO
             DateTime tiempoFinal = DateTime.Now;
@@ -76,7 +76,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
         //METODO ESTATICO DÓNDE EL USUARIO ADIVINA LA PALABRA ESCOGIDA Y SE DIBUJA
         //EN PANTALLA EL DIBUJO DEL AHORCADO SEGÚN LOS INTENTOS QUE LLEVE EL USUARIO
-        public static void AdivinarPalabraSecreta(ref int i, int teclaLeida, String palabraSecreta, ref String palabraJugador, ref String letraEntrada, ref String letraPulsada)
+        public static void DrawHangmanAndGuessSecretWord(ref int i, int teclaLeida, String palabraSecreta, ref String palabraJugador, ref String letraEntrada, ref String letraPulsada)
         {
           
             
@@ -90,7 +90,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             int intento = 0;
             Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
 
-            DrawAhorcadoInicial();
+            DrawInitialHangman();
 
             Console.WriteLine("**************************");
             Console.WriteLine("PALABRA = " + palabraJugador);
@@ -176,7 +176,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
 
-                            DrawAhorcadoInicial();
+                            DrawInitialHangman();
                             Console.WriteLine("**************************");
                             Console.WriteLine("PALABRA = " + palabraJugador);
                             Console.WriteLine("**************************");
@@ -197,7 +197,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
 
-                            DrawAhorcadoIntento1();
+                            DrawHangmanAttempt1();
                             Console.WriteLine("**************************");
                             Console.WriteLine("PALABRA = " + palabraJugador);
                             Console.WriteLine("**************************");
@@ -218,7 +218,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                             DrawNumber2();
                             Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
 
-                            DrawAhorcadoIntento2();
+                            DrawHangmanAttemp2();
                             Console.WriteLine("**************************");
                             Console.WriteLine("PALABRA = " + palabraJugador);
                             Console.WriteLine("**************************");
@@ -238,7 +238,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
 
-                            DrawAhorcadoIntento3();
+                            DrawHangmanAttempt3();
                             Console.WriteLine("**************************");
                             Console.WriteLine("PALABRA = " + palabraJugador);
                             Console.WriteLine("**************************");
@@ -260,7 +260,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             DrawNumber4();
                             Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
-                            DrawAhorcadoIntento4();
+                            DrawHangmanAttempt4();
                             Console.WriteLine("**************************");
                             Console.WriteLine("PALABRA = " + palabraJugador);
                             Console.WriteLine("**************************");
@@ -290,7 +290,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
                             Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
 
-                            DrawAhorcadoEnd();
+                            DrawEndHangman();
 
                             Console.WriteLine("**************************");
                             Console.WriteLine("PALABRA = " + palabraJugador);
@@ -339,7 +339,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
 
         //METODOS PARA DIBUJAR LOS AHORCADOS
-        private static void DrawAhorcadoInicial()
+        private static void DrawInitialHangman()
         {
             Console.WriteLine("_________ ");
             Console.WriteLine("|  | ");
@@ -348,7 +348,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             Console.WriteLine("| / \\ ");
         }
 
-        private static void DrawAhorcadoIntento1()
+        private static void DrawHangmanAttempt1()
         {
             Console.WriteLine("_________ ");
             Console.WriteLine("|  | ");
@@ -357,7 +357,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             Console.WriteLine("| /  ");
         }
 
-        private static void DrawAhorcadoIntento2()
+        private static void DrawHangmanAttemp2()
         {
             Console.WriteLine("_________ ");
             Console.WriteLine("|  | ");
@@ -366,7 +366,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             Console.WriteLine("|  ");
         }
 
-        private static void DrawAhorcadoIntento3()
+        private static void DrawHangmanAttempt3()
         {
             Console.WriteLine("_________ ");
             Console.WriteLine("|  | ");
@@ -375,7 +375,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             Console.WriteLine("|  ");
         }
 
-        private static void DrawAhorcadoIntento4()
+        private static void DrawHangmanAttempt4()
         {
             Console.WriteLine("_________ ");
             Console.WriteLine("|  | ");
@@ -384,7 +384,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             Console.WriteLine("|  ");
         }
 
-        private static void DrawAhorcadoEnd()
+        private static void DrawEndHangman()
         {
             Console.WriteLine("_________ ");
             Console.WriteLine("|  | ");
@@ -395,7 +395,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
         //METODO ESTATICO QUE RELLENA UN STRING CON INTERROGRACIONES O ESPACIOS
         //PARA OCULTAR LA PALABRAS ESCOGIDA ALEATORIAMENTE
-        public static void InsertarInterrogacionOEspacioEnPalabraSecreta(ref int i, int teclaLeida, String palabraSecreta, ref String palabraJugador)
+        public static void InsertInterrogationOrSpaceInSecretWord(ref int i, int teclaLeida, String palabraSecreta, ref String palabraJugador)
         {
             for (i = 1; i <= teclaLeida; i++)
             {
@@ -410,7 +410,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
         }
         //METODO ESTATICO QUE DEVUELVE UN STRING, EL CUAL EXTRAE UNA PALABRA ALEATORIA DE UN ARCHIVO DE TEXTO .TXT
-        public static string extraerPalabraAleatoria(ref string palabraSecreta)
+        public static string RemoveRandomWord(ref string palabraSecreta)
         {
 
 

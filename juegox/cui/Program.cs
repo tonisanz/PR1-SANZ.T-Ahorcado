@@ -17,6 +17,7 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.White;
+            
             ModeloJuego.InicializarJuego();
             
 

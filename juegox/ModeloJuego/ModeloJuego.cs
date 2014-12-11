@@ -421,6 +421,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             Random alea = new Random();
 
 
+            //RAFAPUIG: Cuidado, el archivo hay que comprobar que existe antes de usarlo!!! Yo no lo tengo y me lanza una excepcion el programa
             //CREAMOS UN STREAMREADER PARA LEER EL ARCHIVO DE TEXTO DÓNDE ESTÁN LAS PALABRAS
             StreamReader leerPalabra = new StreamReader("C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt");
             //CREAMOS UN STRING, DONDE LEEMOS EL TXT ENTERO

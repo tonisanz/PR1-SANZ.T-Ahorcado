@@ -431,9 +431,9 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             {
                 //CREAMOS UN STREAMREADER PARA LEER EL ARCHIVO DE TEXTO DÓNDE ESTÁN LAS PALABRAS
                 //C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt
-                StreamReader leerPalabra = new StreamReader("Source\\Repos\\ahorcado\\juegox\\ModeloJuego\\palabras.txt");
+                StreamReader leerPalabra = new StreamReader("juegox\\ModeloJuego\\palabras.txt");
                 //CREAMOS UN STRING, DONDE LEEMOS EL TXT ENTERO
-                string texto = File.ReadAllText("Source\\Repos\\ahorcado\\juegox\\ModeloJuego\\palabras.txt");
+                string texto = File.ReadAllText("juegox\\ModeloJuego\\palabras.txt");
             
             //AVERIGUAMOS CUANTAS LINEAS TIENE EL TXT
             //CREAMOS UN INT CORRESPONDIENTE AL NUMERO DE LINEAS, INICIALIZADO A CERO

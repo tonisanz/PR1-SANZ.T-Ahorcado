@@ -76,7 +76,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
         //METODO ESTATICO DÓNDE EL USUARIO ADIVINA LA PALABRA ESCOGIDA Y SE DIBUJA
         //EN PANTALLA EL DIBUJO DEL AHORCADO SEGÚN LOS INTENTOS QUE LLEVE EL USUARIO
-        public static void DrawHangmanAndGuessSecretWord(ref int i, int teclaLeida, String palabraSecreta, ref String palabraJugador, ref String letraEntrada, ref String letraPulsada)
+        public static void DrawHangmanAndGuessSecretWord(ref int i, int ReadedLetter, String SecretWord, ref String GamerWord, ref String EntranceLetter, ref String DownLetter)
         {
           
             
@@ -87,13 +87,13 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.Yellow;
-            int intento = 0;
-            Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
+            int Attempt = 0;
+            Console.WriteLine("\nLA PALABRA TIENE " + SecretWord.Length + " LETRAS");
 
             DrawInitialHangman();
 
             Console.WriteLine("**************************");
-            Console.WriteLine("PALABRA = " + palabraJugador);
+            Console.WriteLine("PALABRA = " + GamerWord);
             Console.WriteLine("**************************");
 
 
@@ -114,19 +114,19 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
 
                 //ALMACENAMOS LA LETRA PULSADA EN LP
-                letraPulsada = Console.ReadLine();
+                DownLetter = Console.ReadLine();
                 //CONVERTIMOS LP A MAYÚSCULA POR SI EL USUARIO PULSA LA LETRA EN MINÚSCULA
-                letraPulsada = letraPulsada.ToUpper();
+                DownLetter = DownLetter.ToUpper();
                 //INICIAMOS UN BUCLE FOR PARA INSERTAR LA LETRA EN PALABRA3
-                for (i = 0; i <= teclaLeida - 1; i++)
+                for (i = 0; i <= ReadedLetter - 1; i++)
                 {
 
-                    letraEntrada = palabraSecreta.Substring(i, 1);
-                    if (letraEntrada.Equals(letraPulsada))
+                    EntranceLetter = SecretWord.Substring(i, 1);
+                    if (EntranceLetter.Equals(DownLetter))
                     {
 
-                        palabraJugador = palabraJugador.Remove(i, 1);
-                        palabraJugador = palabraJugador.Insert(i, letraPulsada);
+                        GamerWord = GamerWord.Remove(i, 1);
+                        GamerWord = GamerWord.Insert(i, DownLetter);
                         exito = true;
 
 
@@ -140,10 +140,10 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 //SI ACERTAMOS LA LETRA, SACAMOS LAS LINEAS SIGUIENTES EN PANTALLA
                 if (exito)
                 {
-                    Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
+                    Console.WriteLine("\nLA PALABRA TIENE " + SecretWord.Length + " LETRAS");
 
                     Console.WriteLine("**************************");
-                    Console.WriteLine("PALABRA = " + palabraJugador);
+                    Console.WriteLine("PALABRA = " + GamerWord);
                     Console.WriteLine("**************************");
                     Console.WriteLine();
 
@@ -154,9 +154,9 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 //SI NO ACERTAMOS, INCREMENTAMOS EN 1 UNIDAD LOS INTENTOS Y SACAMOS EN PANTALLA LO SIGUIENTE
                 else
                 {
-                    intento++;
+                    Attempt++;
                     Console.WriteLine("************************************************************************");
-                    Console.WriteLine("La letra introducida no corresponde a la palabra, llevas " + intento + " intento");
+                    Console.WriteLine("La letra introducida no corresponde a la palabra, llevas " + Attempt + " intento");
                     Console.WriteLine("************************************************************************");
                     Console.WriteLine();
 
@@ -164,168 +164,11 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
                 }
 
 
-                switch (intento)
-                {
-                    case 0 :
-                        if (intento == 0)
-                        {
-                            Console.Clear();
-                            DrawHeader();
-                            Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
-
-                            DrawInitialHangman();
-                            Console.WriteLine("**************************");
-                            Console.WriteLine("PALABRA = " + palabraJugador);
-                            Console.WriteLine("**************************");
-                            Console.WriteLine();
-
-                        }
-                        break;
-
-                    case 1 :
-                        if (intento == 1)
-                        {
-
-                            Console.Clear();
-                            DrawHeader();
-                            DrawNumber1();
-                            Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
-
-                            DrawHangmanAttempt1();
-                            Console.WriteLine("**************************");
-                            Console.WriteLine("PALABRA = " + palabraJugador);
-                            Console.WriteLine("**************************");
-
-
-
-                        }
-                        break;
-
-                    case 2 :
-                        if (intento == 2)
-                        {
-                            Console.Clear();
-                            DrawHeader();
-                            Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            DrawNumber2();
-                            Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
-
-                            DrawHangmanAttemp2();
-                            Console.WriteLine("**************************");
-                            Console.WriteLine("PALABRA = " + palabraJugador);
-                            Console.WriteLine("**************************");
-                            Console.WriteLine();
-
-
-                        }
-                        break;
-                    case 3 :
-                        if (intento == 3)
-                        {
-                            Console.Clear();
-                            DrawHeader();
-                            DrawNumber3();
-                            Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
-
-                            DrawHangmanAttempt3();
-                            Console.WriteLine("**************************");
-                            Console.WriteLine("PALABRA = " + palabraJugador);
-                            Console.WriteLine("**************************");
-                            Console.WriteLine();
-
-
-
-                        }
-                        break;
-
-                    case 4 :
-                        if (intento == 4)
-                        {
-
-                            Console.Clear();
-                            DrawHeader();
-                            Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            DrawNumber4();
-                            Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
-                            DrawHangmanAttempt4();
-                            Console.WriteLine("**************************");
-                            Console.WriteLine("PALABRA = " + palabraJugador);
-                            Console.WriteLine("**************************");
-                            Console.WriteLine();
-
-                        }
-                        break;
-
-                    case 5 :
-                        //SI INTENTO ES IGUAL A 5
-                        if (intento == 5)
-                        {
-
-                            //BORRAMOS LA CONSOLA
-                            Console.Clear();
-                            //PINTAMOS EL HEADER DEL JUEGO
-                            DrawHeader();
-                            Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            DrawNumber5();
-                            //CAMBIAMOS EL COLOR DE LA CONSOLA A PARTIR DEL HEADER
-                            Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            //SACAMOS EN PANTALLA LO SIGUIENTE
-
-                            Console.WriteLine("\nLA PALABRA TIENE " + palabraSecreta.Length + " LETRAS");
-
-                            DrawEndHangman();
-
-                            Console.WriteLine("**************************");
-                            Console.WriteLine("PALABRA = " + palabraJugador);
-                            Console.WriteLine("**************************");
-                            Console.WriteLine();
-
-                            Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-                            Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine("Has agotado todos tus intentos, ¡PIERDES!");
-                            Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-                            Console.WriteLine();
-                            Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("LA PALABRA CORRECTA ERA ----->{0}", palabraSecreta);
-                            Console.WriteLine();
-
-
-                        }
-
-                        break;
-
-                }
+                DrawHangmanAttempts(SecretWord, GamerWord, Attempt);
 
 
                 //SI PALABRA2 ES IGUAL A PALABRA3, GANA EL USUARIO
-                if (palabraSecreta == palabraJugador)
+                if (SecretWord == GamerWord)
                 {
                     Console.WriteLine("ENHORABUENA! ¡GANASTE!");
                     DrawHandOk();
@@ -334,7 +177,171 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
             }
             //TODO LO ANTERIOR SE REALIZARÁ MIENTRAS QUE EL INTENTO SEA MENOR QUE 5
-            while (intento < 5);
+            while (Attempt < 5);
+        }
+
+
+        //METODO QUE DIBUJA EL AHORCADO SEGUN SUS INTENTOS
+        private static void DrawHangmanAttempts(String SecretWord, String GamerWord, int Attempt)
+        {
+            switch (Attempt)
+            {
+                case 0:
+                    if (Attempt == 0)
+                    {
+                        Console.Clear();
+                        DrawHeader();
+                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("\nLA PALABRA TIENE " + SecretWord.Length + " LETRAS");
+
+                        DrawInitialHangman();
+                        Console.WriteLine("**************************");
+                        Console.WriteLine("PALABRA = " + GamerWord);
+                        Console.WriteLine("**************************");
+                        Console.WriteLine();
+
+                    }
+                    break;
+
+                case 1:
+                    if (Attempt == 1)
+                    {
+
+                        Console.Clear();
+                        DrawHeader();
+                        DrawNumber1();
+                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("\nLA PALABRA TIENE " + SecretWord.Length + " LETRAS");
+
+                        DrawHangmanAttempt1();
+                        Console.WriteLine("**************************");
+                        Console.WriteLine("PALABRA = " + GamerWord);
+                        Console.WriteLine("**************************");
+
+
+
+                    }
+                    break;
+
+                case 2:
+                    if (Attempt == 2)
+                    {
+                        Console.Clear();
+                        DrawHeader();
+                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        DrawNumber2();
+                        Console.WriteLine("\nLA PALABRA TIENE " + SecretWord.Length + " LETRAS");
+
+                        DrawHangmanAttemp2();
+                        Console.WriteLine("**************************");
+                        Console.WriteLine("PALABRA = " + GamerWord);
+                        Console.WriteLine("**************************");
+                        Console.WriteLine();
+
+
+                    }
+                    break;
+                case 3:
+                    if (Attempt == 3)
+                    {
+                        Console.Clear();
+                        DrawHeader();
+                        DrawNumber3();
+                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("\nLA PALABRA TIENE " + SecretWord.Length + " LETRAS");
+
+                        DrawHangmanAttempt3();
+                        Console.WriteLine("**************************");
+                        Console.WriteLine("PALABRA = " + GamerWord);
+                        Console.WriteLine("**************************");
+                        Console.WriteLine();
+
+
+
+                    }
+                    break;
+
+                case 4:
+                    if (Attempt == 4)
+                    {
+
+                        Console.Clear();
+                        DrawHeader();
+                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        DrawNumber4();
+                        Console.WriteLine("\nLA PALABRA TIENE " + SecretWord.Length + " LETRAS");
+                        DrawHangmanAttempt4();
+                        Console.WriteLine("**************************");
+                        Console.WriteLine("PALABRA = " + GamerWord);
+                        Console.WriteLine("**************************");
+                        Console.WriteLine();
+
+                    }
+                    break;
+
+                case 5:
+                    //SI INTENTO ES IGUAL A 5
+                    if (Attempt == 5)
+                    {
+
+                        //BORRAMOS LA CONSOLA
+                        Console.Clear();
+                        //PINTAMOS EL HEADER DEL JUEGO
+                        DrawHeader();
+                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        DrawNumber5();
+                        //CAMBIAMOS EL COLOR DE LA CONSOLA A PARTIR DEL HEADER
+                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        //SACAMOS EN PANTALLA LO SIGUIENTE
+
+                        Console.WriteLine("\nLA PALABRA TIENE " + SecretWord.Length + " LETRAS");
+
+                        DrawEndHangman();
+
+                        Console.WriteLine("**************************");
+                        Console.WriteLine("PALABRA = " + GamerWord);
+                        Console.WriteLine("**************************");
+                        Console.WriteLine();
+
+                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("Has agotado todos tus intentos, ¡PIERDES!");
+                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                        Console.WriteLine();
+                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("LA PALABRA CORRECTA ERA ----->{0}", SecretWord);
+                        Console.WriteLine();
+
+
+                    }
+
+                    break;
+
+            }
         }
 
 
@@ -395,14 +402,14 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
         //METODO ESTATICO QUE RELLENA UN STRING CON INTERROGRACIONES O ESPACIOS
         //PARA OCULTAR LA PALABRAS ESCOGIDA ALEATORIAMENTE
-        public static void InsertInterrogationOrSpaceInSecretWord(ref int i, int teclaLeida, String palabraSecreta, ref String palabraJugador)
+        public static void InsertInterrogationOrSpaceInSecretWord(ref int i, int ReadedLetter, String SecretWord, ref String GamerWord)
         {
-            for (i = 1; i <= teclaLeida; i++)
+            for (i = 1; i <= ReadedLetter; i++)
             {
-                if (palabraSecreta.Substring(i, 0) != " ")
-                    palabraJugador = palabraJugador + "?";
+                if (SecretWord.Substring(i, 0) != " ")
+                    GamerWord = GamerWord + "?";
                 else
-                    palabraJugador = palabraJugador + " ";
+                    GamerWord = GamerWord + " ";
 
             }
 
@@ -410,21 +417,24 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
 
         }
         //METODO ESTATICO QUE DEVUELVE UN STRING, EL CUAL EXTRAE UNA PALABRA ALEATORIA DE UN ARCHIVO DE TEXTO .TXT
-        public static string RemoveRandomWord(ref string palabraSecreta)
+        public static string RemoveRandomWord(ref string SecretWord)
         {
 
 
-
+           
 
             //CREAMOS UN OBJETO ALEATORIO
 
             Random alea = new Random();
 
-
-            //CREAMOS UN STREAMREADER PARA LEER EL ARCHIVO DE TEXTO DÓNDE ESTÁN LAS PALABRAS
-            StreamReader leerPalabra = new StreamReader("C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt");
-            //CREAMOS UN STRING, DONDE LEEMOS EL TXT ENTERO
-            string texto = File.ReadAllText("C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt");
+            try
+            {
+                //CREAMOS UN STREAMREADER PARA LEER EL ARCHIVO DE TEXTO DÓNDE ESTÁN LAS PALABRAS
+                //C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt
+                StreamReader leerPalabra = new StreamReader("Source\\Repos\\ahorcado\\juegox\\ModeloJuego\\palabras.txt");
+                //CREAMOS UN STRING, DONDE LEEMOS EL TXT ENTERO
+                string texto = File.ReadAllText("Source\\Repos\\ahorcado\\juegox\\ModeloJuego\\palabras.txt");
+            
             //AVERIGUAMOS CUANTAS LINEAS TIENE EL TXT
             //CREAMOS UN INT CORRESPONDIENTE AL NUMERO DE LINEAS, INICIALIZADO A CERO
             int numLineas = 0;
@@ -455,12 +465,14 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             //LA VARIABLE NUMALETORIO SERA IGUAL A UN NUMERO ALEATORIO ENTRE 0 Y EL NUMERO DE LINEAS
             int numAleatorio = alea.Next(0, numLineas);
             //PALABRA2 SERA IGUAL A LA LINEA QUE OCUPA LA POSICION EN EL TXT DEL NUMERO ALEATORIO
-            palabraSecreta = txt[numAleatorio];
-
+            SecretWord = txt[numAleatorio];
+           
+            }
+            catch (DirectoryNotFoundException dirEx) { Console.WriteLine("\n\nEL ARCHIVO PALABRAS.TXT NO EXISTE\n" + dirEx.Message); }
             //DEVOLVEMOS EL STRING PALABRA2
-            return palabraSecreta;
+            return SecretWord;
 
-
+            
 
 
         }

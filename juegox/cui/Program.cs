@@ -21,18 +21,18 @@ namespace SanzA.Programacion.Eval1.Juego.CUI
             ModeloJuego.InitializeHangmanGame();
             
 
-            Boolean jugarOtra;
+            Boolean PlayAgain;
 
             do
             {
                 
                 Console.WriteLine("QUIERES JUGAR OTRA PARTIDA? S/N");
-                string respuestaJugador = Console.ReadLine();
-                respuestaJugador.ToUpper();
-                jugarOtra = false;
-                if (respuestaJugador == "s" || respuestaJugador == "S") { ModeloJuego.InitializeHangmanGame(); jugarOtra = true; }
+                string GamerReply = Console.ReadLine();
+                GamerReply.ToUpper();
+                PlayAgain = false;
+                if (GamerReply == "s" || GamerReply == "S") { ModeloJuego.InitializeHangmanGame(); PlayAgain = true; }
                 else Console.WriteLine("HASTA LUEGO!");
-            } while (jugarOtra == true);
+            } while (PlayAgain == true);
 
             Console.Read();
 

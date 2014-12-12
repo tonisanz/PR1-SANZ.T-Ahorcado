@@ -28,11 +28,11 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             //Creamos y damos valores vacios a las variables de tipo string
             //Palabra2 => palabraSecreta
             //Palabra2 => palabraJugador
-            String palabraSecreta = "", palabraJugador = "", letraEntrada = "", letraPulsada = ""; ;
+            String secretWord = "", GamerWord = "", EntranceLetter = "", DownLetter = ""; ;
 
             //LLAMAMOS A LOS MÉTODOS ESTÁTICOS DE LA CLASE MODELOJUEGO
             //Extraemos la palabra aleatoria llamando a el proyecto ModeloJuego
-            ModeloJuego.RemoveRandomWord(ref palabraSecreta);
+            ModeloJuego.RemoveRandomWord(ref secretWord);
 
 
             //Escribimos el header del juego en consola
@@ -44,10 +44,10 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             DateTime tiempoInicio = DateTime.Now;
 
             //Llamamos InterrogacionOespacio para poner el simbolo ? o un espacio
-            ModeloJuego.InsertInterrogationOrSpaceInSecretWord(ref i, palabraSecreta.Length, palabraSecreta, ref palabraJugador);
+            ModeloJuego.InsertInterrogationOrSpaceInSecretWord(ref i, secretWord.Length, secretWord, ref GamerWord);
 
             //Llamamos al método AdivinarPalabra para empezar a jugar
-            ModeloJuego.DrawHangmanAndGuessSecretWord(ref i, palabraSecreta.Length, palabraSecreta, ref palabraJugador, ref letraEntrada, ref letraPulsada);
+            ModeloJuego.DrawHangmanAndGuessSecretWord(ref i, secretWord.Length, secretWord, ref GamerWord, ref EntranceLetter, ref DownLetter);
 
             //SEGUNDA PARTE DEL CONTADOR DE TIEMPO
             DateTime tiempoFinal = DateTime.Now;
@@ -469,10 +469,28 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             SecretWord = txt[numAleatorio];
            
             }
-            catch (DirectoryNotFoundException dirEx) { Console.WriteLine("\n\nEL ARCHIVO PALABRAS.TXT NO EXISTE\n" + dirEx.Message); }
+            catch (FileNotFoundException dirEx) {
+                Console.WriteLine("\n\nEL ARCHIVO PALABRAS.TXT NO EXISTE\n" + dirEx.Message);
+                //SI NO EXISTE EL ARCHIVO, EL JUEGO
+                //SE INICIARÁ CON PALABRAS PREDEFINIDAS
+                String[] AuxiliarWords = new String[10];
+                AuxiliarWords[0] = "COCHE";
+                AuxiliarWords[1] = "MOTO";
+                AuxiliarWords[2] = "BICICLETA";
+                AuxiliarWords[3] = "MONITOR";
+                AuxiliarWords[4] = "ORDENADOR";
+                AuxiliarWords[5] = "CALLE";
+                AuxiliarWords[6] = "TECLADO";
+                AuxiliarWords[7] = "MANZANA";
+                AuxiliarWords[8] = "MUSICA";
+                AuxiliarWords[9] = "CODIGO";
+                int numAlea = alea.Next(0, 10);
+                SecretWord = AuxiliarWords[numAlea];
+            }
+            
             //DEVOLVEMOS EL STRING PALABRA2
             return SecretWord;
-
+            
             
 
 

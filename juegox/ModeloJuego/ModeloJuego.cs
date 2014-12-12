@@ -353,6 +353,7 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             Console.WriteLine("|  0 ");
             Console.WriteLine("| /|\\ ");
             Console.WriteLine("| / \\ ");
+
         }
 
         private static void DrawHangmanAttempt1()
@@ -430,10 +431,10 @@ namespace SanzA.Programacion.Eval1.Juego.Logica
             try
             {
                 //CREAMOS UN STREAMREADER PARA LEER EL ARCHIVO DE TEXTO DÓNDE ESTÁN LAS PALABRAS
-                //C:\\Users\\ToniSanz\\Source\\Repos\\ahorcado\\juegox\\palabras.txt
-                StreamReader leerPalabra = new StreamReader("juegox\\ModeloJuego\\palabras.txt");
+                
+                StreamReader leerPalabra = new StreamReader(@".\palabras.txt");
                 //CREAMOS UN STRING, DONDE LEEMOS EL TXT ENTERO
-                string texto = File.ReadAllText("juegox\\ModeloJuego\\palabras.txt");
+                string texto = File.ReadAllText(@".\palabras.txt");
             
             //AVERIGUAMOS CUANTAS LINEAS TIENE EL TXT
             //CREAMOS UN INT CORRESPONDIENTE AL NUMERO DE LINEAS, INICIALIZADO A CERO
